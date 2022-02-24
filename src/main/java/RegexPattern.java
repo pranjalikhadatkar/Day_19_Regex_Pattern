@@ -5,20 +5,20 @@ import java.util.regex.Pattern;
 public class RegexPattern {
     public static void main(String args[]) {
         Scanner sc = new Scanner(System.in);
-        String emailId;
+        String MobileNumber;
         // Eg -> abc.xyz@bl.co.in
-        System.out.println(" enter email address with precise @ and . positions: ");
-        emailId = sc.nextLine();
-        confirmEmailAddress(emailId);
+        System.out.println(" enter mobile number in which country code followed by space & 10 digit number: ");
+        MobileNumber = sc.nextLine();
+        confirmMobileNumber(MobileNumber);
     }
 
-    public static void confirmEmailAddress(String emailId) {
-        Pattern pattern = Pattern.compile("[a-z]+[.][a-z]*[@][a-z]+[.][a-z]+[.][a-z]*");
-        Matcher matcher = pattern.matcher(emailId);
+    public static void confirmMobileNumber(String MobileNumber) {
+        Pattern pattern = Pattern.compile("^(\\+91|0)?[6-9][0-9]{9}$");
+        Matcher matcher = pattern.matcher(MobileNumber);
         if (matcher.matches()) {
-            System.out.println(" format of email address is correct " + emailId);
+            System.out.println(" format of mobile number is correct " + MobileNumber);
         } else {
-            System.out.println(" format of email address is incorrect.");
+            System.out.println(" format of mobile number is incorrect.");
         }
     }
 }
