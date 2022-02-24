@@ -2,23 +2,24 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static javafx.scene.input.KeyCode.Z;
+
 public class RegexPattern {
     public static void main(String args[]) {
         Scanner sc = new Scanner(System.in);
-        String MobileNumber;
-        // Eg -> abc.xyz@bl.co.in
-        System.out.println(" enter mobile number in which country code followed by space & 10 digit number: ");
-        MobileNumber = sc.nextLine();
-        confirmMobileNumber(MobileNumber);
+        String password;
+        System.out.println(" enter password which contains minimum 8 characters: ");
+        password = sc.nextLine();
+        confirmpassword(password);
     }
 
-    public static void confirmMobileNumber(String MobileNumber) {
-        Pattern pattern = Pattern.compile("^(\\+91|0)?[6-9][0-9]{9}$");
-        Matcher matcher = pattern.matcher(MobileNumber);
+    public static void confirmpassword(String password) {
+        Pattern pattern = Pattern.compile("^[A-Za-z0-9!@#$%^&*()+=?]{8,}$");
+        Matcher matcher = pattern.matcher(password);
         if (matcher.matches()) {
-            System.out.println(" format of mobile number is correct " + MobileNumber);
+            System.out.println(" format of password is correct " + password);
         } else {
-            System.out.println(" format of mobile number is incorrect.");
+            System.out.println(" format of password is incorrect.");
         }
     }
 }
